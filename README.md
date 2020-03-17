@@ -3,7 +3,9 @@
 
 ## 文章和教程
 
-[Go中的依赖注入](https://studygolang.com/articles/26421)
+[Go中的依赖注入](https://www.jianshu.com/p/cb3682ad34a7) 
+
+> 如果你觉得 dig 合胃口,你应该使用 [fx](https://pkg.go.dev/go.uber.org/fx?tab=doc). 
 
 > 由浅入深的介绍了依赖注入,关于为什么要依赖注入应该看 [**架构整洁之道**](http://gdut_yy.gitee.io/doc-cleanarch/)
 
