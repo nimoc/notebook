@@ -3,7 +3,7 @@
 
 ## 文章和教程
 
-[Go中的依赖注入](https://www.jianshu.com/p/cb3682ad34a7) 
+[使用dig进行依赖注入-机翻转载](https://github.com/nimoc/notebook/issues/2)
 
 > 如果你觉得 dig 合胃口,你应该使用 [fx](https://pkg.go.dev/go.uber.org/fx?tab=doc). 
 
