@@ -25,6 +25,8 @@
 > 关键词 -csdn.net
 
 在浏览器设置搜索引擎的网址格式为 `https://www.bing.com/search?q=%s -csdn.net` 这种就可以免去每次输入 `-csdn.net` 防止每次都恶心自己.
+
+
 ---
 
 
