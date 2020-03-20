@@ -1,7 +1,7 @@
 # notebook
 库如其名,笔记本
 
-## 文章和教程
+## 文章教程
 
 [使用dig进行依赖注入-机翻转载](https://github.com/nimoc/notebook/issues/2)
 
@@ -9,7 +9,10 @@
 
 > 由浅入深的介绍了依赖注入,关于为什么要依赖注入应该看 [**架构整洁之道**](http://gdut_yy.gitee.io/doc-cleanarch/)
 
+go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [monkey](https://github.com/bouk/monkey) 直接修改函数指针。因为使用 interface 会导致大量为了满足 interface 实现的测试struct和 func 。
+
 ---
+
 [使用Wire进行依赖注入-机翻转载](https://github.com/nimoc/notebook/issues/1)
 
 ## 简短的编程技巧
@@ -26,9 +29,7 @@
 
 在浏览器设置搜索引擎的网址格式为 `https://www.bing.com/search?q=%s -csdn.net` 这种就可以免去每次输入 `-csdn.net` 防止每次都恶心自己.
 
-
 ---
-
 
 ## 想法认知
 
