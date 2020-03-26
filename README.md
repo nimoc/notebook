@@ -16,6 +16,16 @@ go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [m
 
 [使用Wire进行依赖注入-机翻转载](https://github.com/nimoc/notebook/issues/1)
 
+## 各种要注意的坑
+
+### sqlx
+
+因为使用者不谨慎同时使用 `SELECT * ` 加上 `StructScan` 或 `db.Select`等方法 会导致数据库如果新增了字段,而 `struct` 没有新增会报错
+
+`panic: missing destination name created_at in *f_test.User [recovered]`
+
+这个问题我在 [gofree](http://github.com/og/gofree) 封装解决了,但是如果直接使用 sqlx 一定要注意, 有空了我再写个完整文章复现问题.
+
 ## 简短的编程技巧
 
 ### 悲观编程
