@@ -28,6 +28,20 @@ go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [m
 
 ## 简短的编程技巧
 
+### 消除 null nil undefined 
+
+各个语言都会有 `null` `nil` `undefined` 这样的设计,要净一切可能在代码层面消除他们.列举几个例子
+
+go 的 sql.NullTime 类型
+
+```go
+type NullTime struct {
+	Time  time.Time
+	Valid bool // Valid is true if Time is not NULL
+}
+```
+
+
 ### 悲观编程
 
 不要总是设想代码是按预期运行的,尽可能的写一些判断日志来帮助自己排除发现问题. (并发,涉及IO的情况下都可能没有按预期运行)
