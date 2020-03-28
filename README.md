@@ -28,6 +28,10 @@ go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [m
 
 ## 简短的编程技巧
 
+### switch 函数
+
+`switch` 务必处理 `default` 你以为永远不会出现 `default` 实际上并不是绝对的. 如果认为绝对不会出现 `default` 就在 `default` 抛出友好消息的异常.另外应该通过封装 `switch` 函数来避免 `switch`遗漏 `case`. 后续出详细文章详细论证
+
 ### 消除 null nil undefined 
 
 各个语言都会有 `null` `nil` `undefined` 这样的设计,要净一切可能在代码层面消除他们.列举几个例子
@@ -50,7 +54,6 @@ type NullTime struct {
 
 甚至两个相关业务模块中任一模块要预计其他模块出现bug的情况下,尽可能的让当前模块也不受到影响.
 
-`switch` 务必处理 `default` 你以为永远不会出现 `default` 实际上并不是绝对的. 如果认为绝对不会出现 `default` 就在 `default` 抛出友好消息的异常.另外应该通过封装 `switch` 函数来避免 `switch`遗漏 `case`. 后续出详细文章详细论证
 
 ### 确保编译期尽可能的类型检查
 
