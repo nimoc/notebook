@@ -4,7 +4,15 @@
 
 ## 文章教程
 
-[MySQL锁总结](https://github.com/nimoc/notebook/issues/3)
+[MySQL锁总结-转载](https://github.com/nimoc/notebook/issues/3) 
+
+> 此文易于理解
+
+----
+
+[Mysql锁：灵魂七拷问-转载](https://github.com/nimoc/notebook/issues/4) 
+
+>此文能做到知其所以然
 
 ----
 
