@@ -4,6 +4,10 @@
 
 ## 文章教程
 
+[MySQL锁总结](https://github.com/nimoc/notebook/issues/3)
+
+----
+
 [使用dig进行依赖注入-机翻转载](https://github.com/nimoc/notebook/issues/2)
 
 > 如果你觉得 dig 合胃口,你应该使用 [fx](https://pkg.go.dev/go.uber.org/fx?tab=doc). 
