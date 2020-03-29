@@ -156,3 +156,7 @@ TypeScript 赋予了 JavaScript 静态类型的能力但是由于 JavaScript 的
 > 一些观点印证了我的想法,并一些观点让我不清晰的观点更加明确,一些观点让给了我新的视角
 
 [Robert C·Martin](https://book.douban.com/author/104377/books?sortby=collect&format=pic) 有很多作品可以都看一遍
+
+----
+
+[面向对象葵花宝典：思想、技巧与实践](https://book.douban.com/subject/26674160/)
