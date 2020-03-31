@@ -4,6 +4,12 @@
 
 ## 文章教程
 
+[在Go中使用文件-转载](https://github.com/nimoc/notebook/issues/5)
+
+> 一个字全
+
+----
+
 [MySQL锁总结-转载](https://github.com/nimoc/notebook/issues/3) 
 
 > 此文易于理解
