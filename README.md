@@ -38,6 +38,10 @@ go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [m
 
 ### 时间时区
 
+先记录下来参考资料,明天再详细整理一篇文章出来.从客户端提交时间格式到服务端逻辑,到数据库.
+
+<details>
+
 [UTC]([https://zh.wikipedia.org/wiki/%E5%8D%8F%E8%B0%83%E4%B8%96%E7%95%8C%E6%97%B6](https://zh.wikipedia.org/wiki/协调世界时))
 
 [UTC+8]([https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E6%97%B6%E9%97%B4](https://zh.wikipedia.org/wiki/北京时间))
@@ -52,8 +56,7 @@ go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [m
 
 [mysql teamstamp datetime](https://www.cnblogs.com/ivictor/p/5028368.html)
 
-
-先记录下来参考资料,明天再详细整理一篇文章出来.从客户端提交时间格式到服务端逻辑,到数据库.
+</details>
 ### sqlx
 
 因为使用者不谨慎同时使用 `SELECT * ` 加上 `StructScan` 或 `db.Select`等方法 会导致数据库如果新增了字段,而 `struct` 没有新增会报错
@@ -198,11 +201,19 @@ tj.equalString(v.name, "nimo") // v.name 是个字符串类型
 
 ### TypeScript 与 JavaScript 
 
+1. TypeScript 只是个类型注解
+2. 使用 TypeScript 需要转换思维
+3. node 中一定要使用 TypeScript
+4. 在前端代码中不一定非要使用 TypeScript
+5. 面对现实做出明确定义
+
+<details>
+
 TypeScript 赋予了 JavaScript 静态类型的能力但是由于 JavaScript 的语法向前兼容的历史包袱和 TypeScript 不想限制 JavaScript 本身的灵活性.导致 **TypeScript 只是个类型注解**,并不是 强类型语言.又因为浏览器运行环境导致在运行时还是以 JavaScript 运行,会出现命名定义了类型是 number 结果运行时候还是可能会是 undefined . [响应数据 undefined](https://github.com/nimoc/blog/issues/33)
 
 母语是 JavaScript 的开发人员去学习 TypeScript 比学习一门新的静态类型语言还要难.因为始终会以 JavaScript 动态灵活的思维去写 TypeScript 代码,而 TypeScript 为了满足 JavaScript 的灵活性,有大量的高级类型语法.有些已经高级到复杂的程度.并且因为复杂度高经常出现新手看不懂的 TypeScript 编译报错.
 
- TypeScript 很优秀.但是历史包袱和依附 JavaScript 本身会导致 TypeScript 很难写. 思维逻辑要转换,要 "自废武功" 去将一些以前 JavaScript 写起来非常简单的代码,用 TypeScript 使用很"啰嗦的"语法去实现.这种"啰嗦"真是静态语言严谨的代码风格. 所以**使用 TypeScript 需要在转换思维**.最好学习一门跟 JavaScript 很像的强静态类型语言,比如我推荐 golang.
+ TypeScript 很优秀.但是历史包袱和依附 JavaScript 本身会导致 TypeScript 很难写. 思维逻辑要转换,要 "自废武功" 去将一些以前 JavaScript 写起来非常简单的代码,用 TypeScript 使用很"啰嗦的"语法去实现.这种"啰嗦"真是静态语言严谨的代码风格. 所以**使用 TypeScript 需要转换思维**.最好学习一门跟 JavaScript 很像的强静态类型语言,比如我推荐 golang.
 
 在 **node 中一定要使用 TypeScript** ,因为后端的各个函数各个数据之间的调用是关联性很强的.相比前端而言,我认为后端是要解决整个面的复杂度,前端是要解决单个点的复杂度,点与点之间的复杂度不是特别高.难度不分高低,根据场景决定.
 
@@ -211,6 +222,8 @@ TypeScript 赋予了 JavaScript 静态类型的能力但是由于 JavaScript 的
 **在前端代码中不一定非要使用 TypeScript**, 在开发组件和开发核心高复用的模块时一定要用 TypeScript ,因为要确保稳定型和可维护性.但有些页面逻辑代码,将响应数据转换为渲染数据,并根据事件修改渲染数据的这些简单繁琐的逻辑是可以不用 TypeScript 的因为有时候时间不等人,项目 dealline 会逼得你 any 满天飞.
 
 我们要实事求是,如果你时间允许的情况下应该全部 TypeScript 加上类型,如果在页面琐碎的ui逻辑中时间来不及,是允许使用 any 的.因为现实会让你还是写 any.不如我们**面对现实做出明确定义**,而不是一刀切的不允许用 any 或者一刀切不用 TypeScript.
+
+</details>
 
 ## 纯函数依赖注入
 
