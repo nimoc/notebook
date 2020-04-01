@@ -64,6 +64,47 @@ go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [m
 
 ## 简短的编程技巧
 
+### 布尔值的逻辑运算使用积极拒绝式
+
+> 积极拒绝的意思就是一旦任何一个逻辑判断不通过就立即中断并不通过,只在函数最后编写通过代码
+
+
+
+<details>
+
+```go
+type Event struct {
+	AnyTime bool
+	StartTime time.Time
+	EndTime time.Time
+	Disabled bool
+}
+// 积极拒绝式(好的)
+func (v Event) Available() bool {
+	if v.Disabled { return false }
+	if !v.AnyTime {
+		now := time.Now()
+		if now.Before(v.StartTime) { return false }
+		if now.After(v.EndTime) { return false}
+	}
+	return true // 积极拒绝的意思就是一旦任何一个逻辑判断不通过就立即中断并不通过,只在函数最后编写通过代码
+}
+// 排除式(有隐患)
+func (v Event) BadCodeAvailable() bool {
+	if v.Disabled { return false }
+	if v.AnyTime {
+		return true // 此行代码是个隐患,nimo 称之为排除式代码(排除AnyTime 为 true 时通过)
+	} else {
+		now := time.Now()
+		if now.Before(v.StartTime) { return false }
+		if now.After(v.EndTime) { return false}
+		return true
+	}
+}
+```
+思考如何最开始没有 `Disabled` 而   `if v.Disabled { return false }`是后加的,如果在  `BadCodeAvailable` 中将 `Disabled` 的判断放在 v.AnyTime 后面是不是会出bug.而即使放在前面也会导致后续维护可能出现bug.
+</details>
+
 ### 不要让前端通过 url 获取参数
 
 如果需要后端负责页面渲染,当遇到 `/user/{user}` `/user/nimo` 时,在前后端的角度都要告知对方不要在前端获取 `nimo` ,而是通过页面渲染时后端传递渲染参数告知前端数据
