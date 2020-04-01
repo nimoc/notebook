@@ -57,6 +57,7 @@ go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [m
 [mysql teamstamp datetime](https://www.cnblogs.com/ivictor/p/5028368.html)
 
 </details>
+
 ### sqlx
 
 因为使用者不谨慎同时使用 `SELECT * ` 加上 `StructScan` 或 `db.Select`等方法 会导致数据库如果新增了字段,而 `struct` 没有新增会报错
