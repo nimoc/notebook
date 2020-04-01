@@ -36,6 +36,24 @@ go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [m
 
 ## 各种要注意的坑
 
+### 时间时区
+
+[UTC]([https://zh.wikipedia.org/wiki/%E5%8D%8F%E8%B0%83%E4%B8%96%E7%95%8C%E6%97%B6](https://zh.wikipedia.org/wiki/协调世界时))
+
+[UTC+8]([https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E6%97%B6%E9%97%B4](https://zh.wikipedia.org/wiki/北京时间))
+
+[夏令时]([https://zh.wikipedia.org/wiki/%E5%A4%8F%E6%97%B6%E5%88%B6](https://zh.wikipedia.org/wiki/夏时制))
+
+[GMT]([https://zh.wikipedia.org/wiki/%E6%A0%BC%E6%9E%97%E5%B0%BC%E6%B2%BB%E6%A8%99%E6%BA%96%E6%99%82%E9%96%93](https://zh.wikipedia.org/wiki/格林尼治標準時間))
+
+[时间格式]([https://chenoge.github.io/2018/12/26/%E6%97%B6%E9%97%B4%E6%88%B3%E3%80%81%E6%97%B6%E5%8C%BA%E4%BB%A5%E5%8F%8A%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F/](https://chenoge.github.io/2018/12/26/时间戳、时区以及时间格式/))
+
+[go mysql 时区](https://www.jianshu.com/p/3f7fc9093db4)
+
+[mysql teamstamp datetime](https://www.cnblogs.com/ivictor/p/5028368.html)
+
+
+先记录下来参考资料,明天再详细整理一篇文章出来.从客户端提交时间格式到服务端逻辑,到数据库.
 ### sqlx
 
 因为使用者不谨慎同时使用 `SELECT * ` 加上 `StructScan` 或 `db.Select`等方法 会导致数据库如果新增了字段,而 `struct` 没有新增会报错
