@@ -56,6 +56,7 @@ go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [m
 
 [mysql teamstamp datetime](https://www.cnblogs.com/ivictor/p/5028368.html)
 
+
 </details>
 
 ### sqlx
@@ -107,6 +108,23 @@ func (v Event) BadCodeAvailable() bool {
 }
 ```
 思考如何最开始没有 `Disabled` 而   `if v.Disabled { return false }`是后加的,如果在  `BadCodeAvailable` 中将 `Disabled` 的判断放在 v.AnyTime 后面是不是会出bug.而即使放在前面也会导致后续维护可能出现bug.
+
+也肯呢个是积极通过,比如
+
+```
+pass := false
+if v.Password == "some" {
+  pass = true
+}
+if v.IP == "localhost" {
+  pass = true
+}
+
+if !pass {
+   response("拒绝访问")
+}
+// 注意这是是为了演示,实际情况下不可能密码硬编码写在代码中
+```
 </details>
 
 ### 不要让前端通过 url 获取参数
