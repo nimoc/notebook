@@ -4,6 +4,12 @@
 
 ## 文章教程
 
+[跟着 mosh 学编程](https://programmingwithmosh.com/)
+
+> 国外不废话视频教程 ,可在哔哩哔哩寻找中字版
+
+----
+
 [在Go中使用文件-转载](https://github.com/nimoc/notebook/issues/5)
 
 > 一个字全
