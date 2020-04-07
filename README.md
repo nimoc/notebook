@@ -75,10 +75,53 @@ go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [m
 
 ## 简短的编程技巧
 
+
+### 消除 Go 中的 _ =
+
+```go
+func ArticleFirst () struct {ID string} {
+
+}
+func AuthorByArticleID () (struct{}, bool) {
+
+}
+aricle, hasAricle := ArticleFirst()
+if !hasAricle { panic(errors.New("不存在"))) }
+
+// bad code
+author, _ := AuthorByArticleID(aricleID)
+
+// good code
+author, hasAricle := AuthorByArticleID(aricleID)
+```
+
+假定 AuthorByArticleID 第二个参数 永远都是返回 true，是不严谨的，一旦出现 false 就会难以发现和排查的 bug.
+
+正确的做法是不忽略任何返回值，必须需要  _ = 的情况则需要注释说明
+
+```go
+// 不需要获取 Content-Length
+_, err = w.Write(bytes) ; if err != nil {panic(err)}
+```
+
+像  `AuthorByArticleID` 这种情况如果觉得99%的情况下不会出现 has false,则在内部进行 panic 处理
+```go
+func AuthorByArticleID () (model struct{}) {
+    has := false
+    // some code
+    if !has {
+    	panic(errors.New("当前作者不存在"))
+    }
+}
+```
+
+至于是返回 bool 还是内部处理，需要自己根据业务场景去决定。没有绝对的教条。
+
+> 不允许忽略任何 error, 如果不知道怎么处理就  `if err != nil { panic(err) }` 。 千万不要直接出现  `jsonb, _ := json.Marshal(v)` 的代码
+
 ### 布尔值的逻辑运算使用积极拒绝式
 
 > 积极拒绝的意思就是一旦任何一个逻辑判断不通过就立即中断并不通过,只在函数最后编写通过代码
-
 
 
 <details>
