@@ -247,6 +247,50 @@ tj.equalString(v.name, "nimo") // v.name 是个字符串类型
 
 ## 想法认知
 
+### 打破固定思维
+
+我母语编程语言是 JavaScript，JavaScript 中有一个 [Array.prototype.some()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some) 方法,切换其他语言，例如切换到 go 语言中可能会下意识的实现
+
+```go
+type StringList []string
+func (sList StringList) Some(callback func(index int, item string) bool) bool {
+	for index, item := range sList {
+		if callback(index, item) {
+			return true
+		}
+	}
+	return false
+}
+hasA := sList.Some(func (index, item) {
+	if item == "a" {
+		return true
+	}
+	return false
+})
+```
+
+实际上 JavaScript 的some实现的不好，名字取得不好。应该是
+
+```go
+func (sList StringList) Find(callback func(index int, item string) (find bool) ) (foundIndex int, found bool) {
+	foundIndex = -1
+	for index, item := range sList {
+		if callback(index, item) {
+			found = true
+			foundIndex = index
+			return 
+		}
+	}
+	return
+}
+foundIndex, found := sList.Find(func (index, item) (find bool) {
+	if item == "a" {
+		return true
+	}
+	return false
+})
+```
+
 ### 自我沟通和共同阅读
 
 代码大全 软件架构设计这类抽象概念的书籍条件允许的情况下寻找与自己水平相当的人共同阅读交流心得,基于编码经验来讨论书中观点更能有效的理解.
