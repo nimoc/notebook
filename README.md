@@ -9,6 +9,12 @@
 
 ## 文章教程
 
+[Go Blog 中文翻译](https://learnku.com/docs/go-blog)
+
+> 全,详细
+
+----
+
 [跟着 mosh 学编程](https://programmingwithmosh.com/)
 
 > 国外不废话视频教程 ,可在哔哩哔哩寻找中字版
