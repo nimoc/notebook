@@ -4,7 +4,6 @@
 
 **每隔一个月回顾一次,能有效巩固知识和消灭未读完的书**
 
-
 ## 重要思想
 
 优秀的设计，简洁实现，满足复杂的需求。
@@ -98,6 +97,22 @@ go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [m
 这个问题我在 [gofree](http://github.com/og/gofree) 封装解决了,但是如果直接使用 sqlx 一定要注意, 有空了我再写个完整文章复现问题.
 
 ## 简短的编程技巧
+
+### SQL审核 where 范围
+
+在业务中如果漏掉关键性 `where` 条件会导致非常严重的事故。例如:
+
+`SELECT * FROM event_user WHERE event_id = ? AND user_id = ? LIMIT 1`
+
+如果漏掉 event_id 会查询到数据，但是数据不属于当前活动的，且不容易被发现。
+可以通过单元测试检查出错误，但严谨的做法是通过多处设卡防止错误。
+方法：
+在SQL审核流程由DBA基于对表的理解，判断是否漏掉了 event_id。
+负责review的同事也进行相同的检查。
+
+这需要 ORM 或者 QueryBuilder 对SQL审查支持良好，链式ORM想要做到SQL审查很麻烦。
+
+[gofree](http://github.com/og/gofree) 在接口设计上就考虑到了SQL审查
 
 ### 减少重复逻辑,而不是减少看似重复的代码
 
