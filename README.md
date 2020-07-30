@@ -104,6 +104,14 @@ go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [m
 
 ## 简短的编程技巧
 
+### 挖掘需求
+
+举例：要求用户输入内容模糊搜索 name 和 mobile 时。编写SQL `SELECT * from user WHERE name like "%?%" OR name like "%?%"`可以满足要求。
+还可以判断请求的字符串是不是手机号，使用 `SELECT * from user WHERE name like "%?%"` 或 `SELECT * from user WHERE mobile like "%?%"`。
+即了解需求为：根据用户输入的内容使用不同条件的查询。
+
+这这是个简单的例子，实际解决日常需求时。有隐藏的更深的需求。需求方可能提出的是要求，而**透过要求了解需求**。这样能事半功倍，并且降低复杂度。
+
 ### 好的变量函数的命名是对逻辑的准确表达
 
 售出 `GoodsSell(count)` 和 减少库存 `GoodsReduceInventory(count)` 看似差不多，实则不同，好的函数名能提高可维护性。避免后续维护时候混淆。
