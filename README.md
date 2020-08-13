@@ -13,6 +13,32 @@
 
 ## 文章/教程/书
 
+[Go语言趣学指南](https://book.douban.com/subject/34951096/)
+
+入门数据，简单的介绍了一些go特性。
+
+[Go程序设计语言](https://book.douban.com/subject/27044219/)
+
+系统的学习go,官方性质书籍。
+
+------
+
+[微服务设计](https://book.douban.com/subject/26772677/)
+
+带着项目经验去看，防止在微服务中踩坑。从而导致做出一团乱麻的微服务。
+
+-----
+
+[深入理解计算机系统](https://book.douban.com/subject/26912767/)
+
+通过了解“底层”知识让“高层”代码写的更好。
+
+-----
+
+[算法](https://book.douban.com/subject/19952400/)
+
+由浅入深，看得懂的算法书
+
 [上下文 Context](https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-context/)
 
 ----
