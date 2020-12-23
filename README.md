@@ -13,6 +13,12 @@
 
 ## 文章/教程/书
 
+(Golang 新手可能会踩的 50 个坑-转载翻译)[https://github.com/nimoc/notebook/issues/7]
+
+信息量大干货多
+
+-------
+
 [Go语言趣学指南](https://book.douban.com/subject/34951096/)
 
 入门数据，简单的介绍了一些go特性。
