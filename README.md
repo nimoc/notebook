@@ -6,10 +6,20 @@
 
 ## 重要思想
 
-优秀的设计，简洁实现，满足复杂的需求。
-> 花时间花心思做出优秀的设计，好的设计生成出的简洁的程序实现，让简洁的实现能满足复杂的需求。因为简洁所以能提高可维护性和可拓展性。但需要注意程序设计是有边界的，设定边界能减少耦合，也能在实现成本和满足需求之间找到平衡点。
+封装的意义不能只是复用，最重要的是对程序设计逻辑分层的体现。
 
-程序设计可以在思考阶段天马行空的发散思维想到最复杂的实现和设计，然后逐步收敛。最终得到优秀的设计和简单的实现。在实现阶段应做到通过代码规范和代码分层设计让编码实现简单不易出错。（类型安全，代码分层，编码风格）
+优秀的设计，简洁实现，满足复杂的需求。
+> 花时间花心思做出优秀的设计，好的设计变成简洁的程序实现，让简洁的实现能满足复杂的需求。
+> 因为简洁所以能提高可维护性和可拓展性。
+
+程序设计是有边界的
+> 设定边界能减少耦合，也能在实现成本和满足需求之间找到平衡点。
+
+发散与收敛
+> 程序设计可以在思考阶段天马行空的发散思维想到最复杂的实现和设计，然后逐步收敛。最终得到优秀的设计和简单的实现。
+
+规范的意义
+>在实现阶段应通过代码规范和代码分层设计让编码实现简单不易出错。（类型安全，代码分层，编码风格）
 
 ## 文章/教程/书
 
@@ -45,17 +55,11 @@
 
 由浅入深，看得懂的算法书
 
+----
+
 [上下文 Context](https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-context/)
 
-----
-
 [深入理解Golang之context](https://github.com/nimoc/notebook/issues/6)
-
-----
-
-[计算广告](https://read.douban.com/reader/ebook/23044373/?from=book)
-
-理解业务才能让技术更好的服务商业,并且这本书中有很多广告的产品设计.
 
 ----
 
@@ -73,39 +77,15 @@
 
 [在Go中使用文件-转载](https://github.com/nimoc/notebook/issues/5)
 
-> 一个字全
-
-----
-
-[MySQL锁总结-转载](https://github.com/nimoc/notebook/issues/3) 
-
-> 此文易于理解
-
-----
-
-[Mysql锁：灵魂七拷问-转载](https://github.com/nimoc/notebook/issues/4) 
-
->此文能做到知其所以然
-
-----
-
-[使用dig进行依赖注入-机翻转载](https://github.com/nimoc/notebook/issues/2)
-
-> 如果你觉得 dig 合胃口,你应该使用 [fx](https://pkg.go.dev/go.uber.org/fx?tab=doc). 
-
-> 由浅入深的介绍了依赖注入,关于为什么要依赖注入应该看 [**架构整洁之道**](http://gdut_yy.gitee.io/doc-cleanarch/)
-
-go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [monkey](https://github.com/bouk/monkey) 直接修改函数指针。因为使用 interface 会导致大量为了满足 interface 实现的测试struct和 func 。
+> 一个字：全
 
 ---
-
-[使用Wire进行依赖注入-机翻转载](https://github.com/nimoc/notebook/issues/1)
 
 ## 各种要注意的坑
 
 ### 时间时区
 
-先记录下来参考资料,明天再详细整理一篇文章出来.从客户端提交时间格式到服务端逻辑,到数据库.
+参考资料
 
 <details>
 
@@ -132,26 +112,35 @@ go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [m
 
 `panic: missing destination name created_at in *f_test.User [recovered]`
 
-这个问题我在 [gofree](http://github.com/og/gofree) 封装解决了,但是如果直接使用 sqlx 一定要注意, 有空了我再写个完整文章复现问题.
+这个问题我在 [gofree](http://github.com/goclub/sql) 封装解决了,但是如果直接使用 sqlx 一定要注意。
 
 ## 简短的编程技巧
 
 ### 挖掘需求
 
-举例：要求用户输入内容模糊搜索 name 和 mobile 时。编写SQL `SELECT * from user WHERE name like "%?%" OR name like "%?%"`可以满足要求。
-还可以判断请求的字符串是不是手机号，使用 `SELECT * from user WHERE name like "%?%"` 或 `SELECT * from user WHERE mobile like "%?%"`。
+举例：要求用户输入内容模糊搜索 name 和 mobile 时。编写SQL `SELECT name,mobile from user WHERE name like "%?%" OR name like "%?%"`可以满足要求。
+还可以判断请求的字符串是不是手机号，使用 `SELECT name,mobile from user WHERE name like "%?%"` 或 `SELECT name,mobile from user WHERE mobile like "%?%"`。
 即了解需求为：根据用户输入的内容使用不同条件的查询。
 
 这这是个简单的例子，实际解决日常需求时。有隐藏的更深的需求。需求方可能提出的是要求，而**透过要求了解需求**。这样能事半功倍，并且降低复杂度。
 
 ### 好的变量函数的命名是对逻辑的准确表达
 
-售出 `GoodsSell(count)` 和 减少库存 `GoodsReduceInventory(count)` 看似差不多，实则不同，好的函数名能提高可维护性。避免后续维护时候混淆。
+售出 `GoodsSell(count)` 和 减少库存 `GoodsReduceInventory(count)` 看似差不多，实则不同，好的函数名能提高可维护性。避免后续维护时候混淆。 供逻辑层使用的函数 GoodsSell 这个命名更好。
 
 ### 如何规划代码分层
 
-以后端分层为例：在架构时先将一个数据相关的增删查改写到一个函数，然后将代码按重复逻辑拆分为不同的函数。随后按请求层，逻辑层，数据层进行划分。
-在这个过程中会发现需要有请求格式校验，请求所属权校验，数据读取。数据传输对象，模型对象。反复推演各种复杂情况下代码应该写在哪儿，最终通过实践和时间去得到满足目前和可预见的未来的设计方式。
+多想，多实验，多思考。不要抱有固有偏见，永远认为自己代码分层完美就永远无法找到更好的方法。社区很多方法都很粗糙，不要先入为主被误导。
+
+比如随处可见的 MVC 很糙。相对更清晰的可以是： 
+
+1. 客户端协议层（http rpc）
+2. 业务逻辑 （service） 
+3. 持久化存储（database）
+
+更细致还有 消息队列 高速缓存 （mq cache） 在 MVC的 model 都无法体现。
+
+要基于目前工作环境做出自己对分层的理解，并谨慎的试验。代码架构永无止境。
 
 ### SQL审核 where 范围
 
@@ -159,15 +148,15 @@ go 依赖注入导致必须使用 interface 模拟测试的问题可以通过 [m
 
 `SELECT * FROM event_user WHERE event_id = ? AND user_id = ? LIMIT 1`
 
-如果漏掉 event_id 会查询到数据，但是数据不属于当前活动的，且不容易被发现。
+如果漏掉 event_id sql依然能运行，但是数据不属于当前活动的，且不容易被发现。
 可以通过单元测试检查出错误，但严谨的做法是通过多处设卡防止错误。
 方法：
-在SQL审核流程由DBA基于对表的理解，判断是否漏掉了 event_id。
+在SQL审核流程由DBA基于对表的理解，判断是否漏掉了 event_id。（上例中 where 只有 user_id 是没意义的，因为 event_id 和 user_id 是联合主键）
 负责review的同事也进行相同的检查。
 
 这需要 ORM 或者 QueryBuilder 对SQL审查支持良好，链式ORM想要做到SQL审查很麻烦。
 
-[gofree](http://github.com/og/gofree) 在接口设计上就考虑到了SQL审查
+[gofree](http://github.com/goclub/sql) 在接口设计上就考虑到了SQL审查
 
 ### 减少重复逻辑,而不是减少看似重复的代码
 
@@ -405,15 +394,9 @@ foundIndex, found := sList.Find(func (index, item) (find bool) {
 
 很多事情权威或者官方的话会让你不解,比如某个编码规则.一些权威或教条解释的不清楚导致知其然不知其所以然.在一个不熟悉的领域,比如新的编程语言,新的学科时,可以在开始时候努力思考和遵循权威和教条,因为大部分权威和教条是对的.但是当发现权威和教条与自己的想法冲突时,可以多去思考.通过努力和自身足够聪明就能看到问题的本质,自己悟道所以然.此时就可以按照自己的想法解决问题.而不受限与权威或教条.
 
-
-> 我认为go 官方提供的 error 规范和方式好,强制自己理解和实践后还是觉得不好,最终按照自己的想法实行我觉得更好的错误处理方式
-> https://github.com/og/x/tree/master/error
-
 ### 要努力做到完美但是也要暂时接受不完美
 
 在遇到一个问题时,不一定有完美的解决方案,不要把大量的世界花在想完美的解决方案上.自己根据当时的情况决定寻找完美解决方法的时间.选择当前能想到的的最好的解决方案,不要顾虑当前想到的是不是最好的.要**努力追寻完美但接受很多事物是做不到完美的**,  可以在事后时间允许的情况或者有更多经验阅历的情况下再寻找更完美的解决方案. 为了防止忘记,所有要有 notebook 这个项目记录.
-
-> web服务器端会需要类似 php die 的函数,但是go建议的其实是一层层的传递错误.我选择了个目前不完美的通过 panic 传递服务拒绝响应消息的解决方法 https://github.com/og/x/blob/master/reject/reject_test.go
 
 ### 编程语言是某几类场景下的解决方案
 
