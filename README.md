@@ -23,6 +23,12 @@
 
 ## 文章/教程/书
 
+(go源码分析)[https://github.com/cch123/golang-notes]
+
+易懂
+
+-------
+
 (Golang 新手可能会踩的 50 个坑-转载翻译)[https://github.com/nimoc/notebook/issues/7]
 
 信息量大干货多
