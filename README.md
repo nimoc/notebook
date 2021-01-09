@@ -87,6 +87,13 @@
 
 ---
 
+---
+[MySQL 事务隔离级别和锁](https://developer.ibm.com/zh/technologies/databases/articles/os-mysql-transaction-isolation-levels-and-locks/)
+
+> 清晰易懂
+
+---
+
 ## 各种要注意的坑
 
 ### 时间时区
