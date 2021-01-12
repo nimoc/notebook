@@ -90,6 +90,8 @@
 ---
 [MySQL 事务隔离级别和锁](https://developer.ibm.com/zh/technologies/databases/articles/os-mysql-transaction-isolation-levels-and-locks/)
 
+[mysql之锁与事务详解](https://liuyueyi.github.io/hexblog/2018/03/23/mysql%E4%B9%8B%E9%94%81%E4%B8%8E%E4%BA%8B%E5%8A%A1%E8%AF%A6%E8%A7%A3/#1-sql%E5%88%86%E6%9E%90)
+
 > 清晰易懂
 
 ---
