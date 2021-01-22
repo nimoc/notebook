@@ -23,6 +23,12 @@
 
 ## 文章/教程/书
 
+-----
+
+(分布式系统事务一致性解决方案)[https://www.infoq.cn/article/solution-of-distributed-system-transaction-consistency]
+
+------
+
 (go源码分析)[https://github.com/cch123/golang-notes]
 
 易懂
